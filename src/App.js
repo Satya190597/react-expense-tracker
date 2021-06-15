@@ -1,16 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+// + Import components.
+import ExpenseItem from './components/ExpenseItem';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello World
-        </p>
-        
-      </header>
+    <div>      
+      <div>
+        <h1>Expense Tracker</h1>
+        <ExpenseItem/>
+      </div>
     </div>
   );
 }
