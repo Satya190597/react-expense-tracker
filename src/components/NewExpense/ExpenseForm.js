@@ -8,7 +8,7 @@ import "./ExpenseForm.css";
 // + Default Imports
 import React, { useState } from "react";
 
-function ExpenseForm() {
+function ExpenseForm(props) {
   // Initialize expense data.
   const [expenseData, setExpenseData] = useState({
     expenseTitle: "",
@@ -33,10 +33,14 @@ function ExpenseForm() {
     event.preventDefault();
 
     const expense = {
+      id: Math.random().toString(),
       title: expenseData.expenseTitle,
       amount: expenseData.expenseAmount,
       date: new Date(expenseData.expenseDate),
     };
+
+    // Call addNewExpense method in App.js.
+    props.addNewExpense(expense);
 
     // Clear form inputs.
     setExpenseData((previousState) => {

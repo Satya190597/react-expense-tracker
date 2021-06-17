@@ -2,6 +2,9 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
+// + Import defaults.
+import React, { useState } from "react";
+
 function App() {
   // + Expenses data.
   const expenses = [
@@ -26,12 +29,22 @@ function App() {
     },
   ];
 
+  // Initialize expenses data.
+  const [expensesList, setExpensesList] = useState(expenses);
+
+  // Add new expense to expensesList.
+  const addNewExpense = (newExpense) => {
+    setExpensesList((previousState) => {      
+      return [newExpense,...previousState,];
+    });
+  };
+
   return (
     <div>
       <div>
         <h1>Expense Tracker</h1>
-        <NewExpense />
-        <Expenses expenses={expenses} />
+        <NewExpense addNewExpense={addNewExpense} />
+        <Expenses expenses={expensesList} />
       </div>
     </div>
   );

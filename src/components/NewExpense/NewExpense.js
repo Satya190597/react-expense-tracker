@@ -4,10 +4,10 @@ import './NewExpense.css'
 // + Import components.
 import ExpenseForm from './ExpenseForm'
 
-function NewExpense() {
+function NewExpense(props) {
     return (
         <div className="new-expense">
-            <ExpenseForm />
+            <ExpenseForm addNewExpense={props.addNewExpense} />
         </div>
     )
 }
