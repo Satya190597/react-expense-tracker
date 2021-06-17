@@ -1,5 +1,6 @@
 // + Import components.
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   // + Expenses data.
@@ -29,6 +30,7 @@ function App() {
     <div>
       <div>
         <h1>Expense Tracker</h1>
+        <NewExpense />
         <Expenses expenses={expenses} />
       </div>
     </div>
