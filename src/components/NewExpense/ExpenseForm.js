@@ -27,8 +27,30 @@ function ExpenseForm() {
     });
   };
 
+  // Form submission handler.
+  const submitHandler = (event) => {
+    // Stop normal html form submission behaviour.
+    event.preventDefault();
+
+    const expense = {
+      title: expenseData.expenseTitle,
+      amount: expenseData.expenseAmount,
+      date: new Date(expenseData.expenseDate),
+    };
+
+    // Clear form inputs.
+    setExpenseData((previousState) => {
+      return {
+        ...previousState,
+        expenseTitle: "",
+        expenseAmount: "",
+        expenseDate: "",
+      };
+    });
+  };
+
   return (
-    <form className="new-expense__controls">
+    <form className="new-expense__controls" onSubmit={submitHandler}>
       <div className="new-expense__control">
         <label>Title</label>
         <input
