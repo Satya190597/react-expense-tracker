@@ -8,14 +8,13 @@ function ExpensesList(props) {
     return <div className="expenses-list__fallback">No Expenses Found</div>;
   } else {
     return props.expenses.map((expense, index) => (
-      <div className="expenses-list">
         <ExpenseItem
           key={index}
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
-        />
-      </div>
+          className="expenses-list"
+        />      
     ));
   }
 }

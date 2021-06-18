@@ -1,15 +1,15 @@
 // + Import CSS.
-import './NewExpense.css'
+import "./NewExpense.css";
 
 // + Import components.
-import ExpenseForm from './ExpenseForm'
+import ExpenseForm from "./ExpenseForm";
 
 function NewExpense(props) {
-    return (
-        <div className="new-expense">
-            <ExpenseForm addNewExpense={props.addNewExpense} />
-        </div>
-    )
+  return (
+    <div className="new-expense">
+      <ExpenseForm addNewExpense={props.addNewExpense} />
+    </div>
+  );
 }
 
-export default NewExpense
+export default NewExpense;

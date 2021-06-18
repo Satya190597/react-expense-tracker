@@ -15,6 +15,8 @@ function ExpenseForm(props) {
     expenseAmount: "",
     expenseDate: "",
   });
+  // Initialize form visible state.
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   // Input Handler - Set expense data from user input.
   const inputChangeHandler = (event) => {
@@ -29,7 +31,7 @@ function ExpenseForm(props) {
 
   // Form submission handler.
   const submitHandler = (event) => {
-    // Stop normal html form submission behaviour.
+    // 1. Stop normal html form submission behaviour.
     event.preventDefault();
 
     const expense = {
@@ -39,10 +41,10 @@ function ExpenseForm(props) {
       date: new Date(expenseData.expenseDate),
     };
 
-    // Call addNewExpense method in App.js.
+    // 2. Call addNewExpense method in App.js.
     props.addNewExpense(expense);
 
-    // Clear form inputs.
+    // 3. Clear form inputs.
     setExpenseData((previousState) => {
       return {
         ...previousState,
@@ -51,9 +53,19 @@ function ExpenseForm(props) {
         expenseDate: "",
       };
     });
+
+    // 4. Hide add new expense form.
+    toggleFormHandler();
   };
 
-  return (
+  // Toggle add new expense form.
+  const toggleFormHandler = () => {
+    setIsFormVisible((previousState) => {
+      return !previousState;
+    });
+  };
+
+  const addNewExpenseForm = (
     <form className="new-expense__controls" onSubmit={submitHandler}>
       <div className="new-expense__control">
         <label>Title</label>
@@ -87,9 +99,20 @@ function ExpenseForm(props) {
         />
       </div>
       <div className="new-expense__actions">
+        <button onClick={toggleFormHandler} type="button">Cancel</button>
         <button>Add</button>
       </div>
     </form>
+  );
+
+  return (
+    <div>
+      {isFormVisible ? (
+        addNewExpenseForm
+      ) : (
+        <button onClick={toggleFormHandler}>Add new Expense</button>
+      )}
+    </div>
   );
 }
 
