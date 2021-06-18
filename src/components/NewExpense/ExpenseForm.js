@@ -37,7 +37,7 @@ function ExpenseForm(props) {
     const expense = {
       id: Math.random().toString(),
       title: expenseData.expenseTitle,
-      amount: expenseData.expenseAmount,
+      amount: +expenseData.expenseAmount,
       date: new Date(expenseData.expenseDate),
     };
 
