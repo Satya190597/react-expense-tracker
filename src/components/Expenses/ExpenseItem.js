@@ -1,9 +1,6 @@
 // + CSS Imports.
 import "./ExpenseItem.css";
 
-// + Default Imports.
-import React, { useState } from "react";
-
 // + Component Imports.
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
