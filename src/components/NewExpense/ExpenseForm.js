@@ -3,7 +3,7 @@
  */
 
 // + Import CSS
-import "./ExpenseForm.css";
+import styles from "./ExpenseForm.module.css";
 
 // + Default Imports
 import React, { useState } from "react";
@@ -66,8 +66,8 @@ function ExpenseForm(props) {
   };
 
   const addNewExpenseForm = (
-    <form className="new-expense__controls" onSubmit={submitHandler}>
-      <div className="new-expense__control">
+    <form className={styles['new-expense__controls']} onSubmit={submitHandler}>
+      <div className={styles['new-expense__control']}>
         <label>Title</label>
         <input
           type="text"
@@ -76,7 +76,7 @@ function ExpenseForm(props) {
           onChange={inputChangeHandler}
         />
       </div>
-      <div className="new-expense__control">
+      <div className={styles['new-expense__control']}>
         <label>Amount</label>
         <input
           type="number"
@@ -87,7 +87,7 @@ function ExpenseForm(props) {
           onChange={inputChangeHandler}
         />
       </div>
-      <div className="new-expense__control">
+      <div className={styles['new-expense__control']}>
         <label>Date</label>
         <input
           type="date"
@@ -98,7 +98,7 @@ function ExpenseForm(props) {
           onChange={inputChangeHandler}
         />
       </div>
-      <div className="new-expense__actions">
+      <div className={styles['new-expense__actions']}>
         <button onClick={toggleFormHandler} type="button">Cancel</button>
         <button>Add</button>
       </div>

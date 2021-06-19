@@ -41,8 +41,7 @@ function App() {
 
   return (
     <div>
-      <div>
-        <h1>Expense Tracker</h1>
+      <div>        
         <NewExpense addNewExpense={addNewExpense} />
         <Expenses expenses={expensesList} />
       </div>

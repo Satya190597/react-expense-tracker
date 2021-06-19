@@ -1,5 +1,5 @@
 // + Import CSS.
-import "./ChartBar.css";
+import styles from "./ChartBar.module.css";
 
 function ChartBar(props) {
   // set initial bar height as string - and in % according to CSS.
@@ -11,11 +11,14 @@ function ChartBar(props) {
   }
 
   return (
-    <div className="chart-bar">
-      <div className="chart-bar__inner ">
-        <div className="chart-bar__fill" style={{ height: barHeight }}></div>
+    <div className={styles["chart-bar"]}>
+      <div className={styles["chart-bar__inner"]}>
+        <div
+          className={styles["chart-bar__fill"]}
+          style={{ height: barHeight }}
+        ></div>
       </div>
-      <div className="chart-bar__label">{props.label}</div>
+      <div className={styles["chart-bar__label"]}>{props.label}</div>
     </div>
   );
 }
